@@ -6,10 +6,11 @@ if __name__ == '__main__':
     gd2 = gdelt.gdelt(version=1)
 
     # Single 15 minute interval pull, output to json format with mentions table
-    for year in range(1979, 2015):
+    #for year in range(1979, 2015):
+    for year in range(2009, 2015):
         start = datetime.datetime.now()
         base = datetime.datetime(year, 1, 1)
-        date_list = [base + datetime.timedelta(days=x) for x in range(int(365.25*(2015-1979)))]
+        date_list = [base + datetime.timedelta(days=x) for x in range(365)]
         if datetime.datetime(year+1, 1, 1) in date_list:
             date_list.pop(-1)
         #for date in date_list:
