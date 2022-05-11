@@ -36,7 +36,6 @@ class GDELTDatasetLoader(object):
             tp = self._dataset["time_periods"]
         for i, time in enumerate(range(tp)):
             W = np.array(self._dataset[str(time)]["weights"])
-            W = np.divide(W, 100)
             self.edge_weights.append(W)
 
     def _get_features(self):
@@ -47,7 +46,6 @@ class GDELTDatasetLoader(object):
             tp = self._dataset["time_periods"]
         for time in range(tp):
             X = np.array(self._dataset[str(time)]["X"])
-            X = np.divide(X, 100)
             self.features.append(X)
 
     def _get_targets(self):
