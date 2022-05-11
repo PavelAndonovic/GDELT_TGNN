@@ -1,6 +1,6 @@
 import torch
 import torch.nn.functional as F
-from torch_geometric_temporal.nn.recurrent import GCLSTM
+from torch_geometric_temporal.nn.recurrent import GCLSTM, DCRNN
 
 
 class LSTMGCNModel(torch.nn.Module):
@@ -26,7 +26,7 @@ class LSTMGCNModel(torch.nn.Module):
         """
 
         super(LSTMGCNModel, self).__init__()
-        self.lstm = GCLSTM(num_node_features, output_lstm, K)
+        self.lstm = DCRNN(num_node_features, output_lstm, K)
         self.linear = torch.nn.Linear(output_lstm, output_linear)
 
     def forward(self, x, edge_index, edge_weight):
